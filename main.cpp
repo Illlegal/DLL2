@@ -67,71 +67,15 @@ void HookThread(const HMODULE instance) {
             GameFunctions::SetAddies();
             GameFunctions::HookToGetNetPointer();
             thread(BackgroundTask).detach();
-
-            // Junk code
-            volatile int junkVar = 123;
-            junkVar += 456;
-            if (junkVar == 579) {
-                junkVar *= 2;
-            }
-            else {
-                junkVar /= 2;
-            }
-            //thread(BackgroundTask).detach();
             bogus = 4;
             break;
         }
-        case 2: {
-            // Dead code
-            int deadVar1 = 10;
-            int deadVar2 = 20;
-            int deadResult = deadVar1 + deadVar2;
-            if (deadResult == 30) {
-                deadResult *= 2;
-            }
-            else {
-                deadResult /= 2;
-            }
-            bogus = 5;
-            break;
-        }
-        case 3: {
-            // More dead code
-            for (int i = 0; i < 5; i++) {
-                int deadLoopVar = i * 10;
-                deadLoopVar += 5;
-            }
-            bogus = 5;
-            break;
-        }
+        case 2: 
+        case 3:    
         case 4:
         default: {
             bogus = 5;
             break;
-        }
-        if (bogus == 5) {
-        volatile int fakeLoop = 0;
-        while (fakeLoop < 3) {
-        fakeLoop++;
-        }
-
-        // More junk code
-        for (int i = 0; i < 5; i++) {
-         int junkLoopVar = i * 2;
-        junkLoopVar += 1;
-        }
-
-        // Another layer of dead code
-        int deadCodeVar1 = 100;
-        int deadCodeVar2 = 200;
-        int deadCodeResult = deadCodeVar1 + deadCodeVar2;
-        if (deadCodeResult == 300) {
-        deadCodeResult -= 50;
-        }
-        else {
-        deadCodeResult += 50;
-        }
-        
         }
         }
     }
